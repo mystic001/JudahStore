@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">JudahStore</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shr_app_name">Judah Store</string>
+    <string name="description_tex">description</string>
+    <string name="price">price</string>
+    <string name="delivery_fee">delivery fee</string>
+    <string name="shr_button_next">upload</string>
+    <string name="shr_button_cancel">view</string>
+    <string name="shr_hint_username">name</string>
+    <string name="choose_file">CHOOSE FILE</string>
+    <string name="shr_product_description">description</string>
+    <string name="shr_product_title">title</string>
+    <string name="total_cost">total_cost</string>
+    <string name="display_platform">display platform</string>
+    <string name="for_the_toolbar">For the toolbar</string>
+    <string name="contact">For more info pls contact me on whatsapp</string>
+    <string name="product_details">Product Details</string>
+    <string name="chicken_fried_rice_1x1">Chicken Fried Rice 1x1</string>
+    <string name="descriptor">PDescription</string>
+    <string name="product_price">Product price</string>
+    <string name="_435_00">₹435.00</string>
+    <string name="buy_now">PROCEED TO MAKE PAYMENT</string>
+    <string name="see_more">BUY NOW</string>
+    <string name="action_share">share</string>
+    <string name="developed_by_08080479545">Developed by 08080479545</string>
+    <string name="homescreen">homeScreen</string>
+    <string name="full_description">Full Description</string>
+    <string name="total_cost1">Total Cost</string>
+</resources>

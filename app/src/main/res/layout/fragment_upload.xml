@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"
+            style="@style/Widget.Shrine.Toolbar"
+            android:layout_height="?attr/actionBarSize" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/loginPageBackgroundColor">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:paddingTop="10dp">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/choose"
+                        style="@style/Widget.Shrine.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/choose_file" />
+
+                    <ImageView
+                        android:id="@+id/image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/shr_logo"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="16dp"
+
+                        tools:ignore="VectorDrawableCompat" />
+
+                    <!-- Snippet from "Add text fields" section goes here. -->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Shrine.TextInputLayout"
+                        android:id="@+id/name_text_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:hint="@string/shr_hint_username">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/name_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:maxLines="1"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Shrine.TextInputLayout"
+                        android:id="@+id/description_text_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:hint="@string/description_tex">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/description_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textAutoComplete"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Shrine.TextInputLayout"
+                        android:id="@+id/price_text_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:hint="@string/price">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/price_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Shrine.TextInputLayout"
+                        android:id="@+id/delivery_fee_text_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:hint="@string/delivery_fee">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/delivery_fee_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/upload"
+                            style="@style/Widget.Shrine.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:text="@string/shr_button_next"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/check"
+                            style="@style/Widget.Shrine.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_toStartOf="@id/upload"
+                            android:layout_toLeftOf="@id/upload"
+                            android:text="@string/shr_button_cancel" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

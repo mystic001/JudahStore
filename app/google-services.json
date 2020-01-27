@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "452789272331",
+    "firebase_url": "https://judahstore-6cd93.firebaseio.com",
+    "project_id": "judahstore-6cd93",
+    "storage_bucket": "judahstore-6cd93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452789272331:android:47ede577304ef8fc3f6c0e",
+        "android_client_info": {
+          "package_name": "com.example.judahstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452789272331-lf1aom4cctlvgr56ddpbbndmcd5rv803.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.judahstore",
+            "certificate_hash": "651ba7af9eafe75cf64165cb14067cd04f35ec73"
+          }
+        },
+        {
+          "client_id": "452789272331-vmq06qi74dpvo7qlt13r3kbcr0nfmegb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyZfUWnkq37eCfmoUCOYlh-hsZa0aXG0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452789272331-vmq06qi74dpvo7qlt13r3kbcr0nfmegb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
