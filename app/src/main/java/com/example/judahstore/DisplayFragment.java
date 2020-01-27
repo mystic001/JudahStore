@@ -159,7 +159,7 @@ public class DisplayFragment extends Fragment implements ProductModelAdapter.ite
     }
 
 
-    @Override
+   /* @Override
     public void ondelete(int position) {
         productModel currentPro = model.get(position);
         final String id = currentPro.getUniqueId();
@@ -178,7 +178,7 @@ public class DisplayFragment extends Fragment implements ProductModelAdapter.ite
             }
         });
 
-    }
+    }*/
 
     @Override
     public void showFull(int position) {

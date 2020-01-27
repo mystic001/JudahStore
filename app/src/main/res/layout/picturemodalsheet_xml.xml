@@ -18,12 +18,25 @@
         android:layout_height="match_parent">
 
 
-        <ImageView
-            android:id="@+id/full_image"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_margin="3dp"
-            android:contentDescription="@string/full_description" />
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/prog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/full_image"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_margin="3dp"
+                android:contentDescription="@string/full_description" />
+
+
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/product_nam"

@@ -61,7 +61,7 @@ import java.util.List;
                     return promodel.size();
                 }
 
-                public class productModelHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
+                public class productModelHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
                     ImageView image_view ;
                     TextView name;
                     TextView price;
@@ -87,7 +87,7 @@ import java.util.List;
                        });
 
                        itemView.setOnClickListener(this);
-                       itemView.setOnCreateContextMenuListener(this);
+                       //itemView.setOnCreateContextMenuListener(this);
 
                     }
 
@@ -102,15 +102,15 @@ import java.util.List;
 
                     }
 
-                    @Override
+                    /*@Override
                     public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
                        contextMenu.setHeaderTitle("Select any action below");
                         MenuItem ondelete = contextMenu.add(Menu.NONE, 1, 1, "Delete");
                         ondelete.setOnMenuItemClickListener(this);
 
-                    }
+                    }*/
 
-                    @Override
+                   /* @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         if ( click != null ) {
                             int position = getAdapterPosition();
@@ -120,12 +120,11 @@ import java.util.List;
                         }
 
                         return false;
-                    }
+                    }*/
                 }
 
                 public interface  itemCliclistener{
                     void onShortClick(int position);
-                    void ondelete (int position);
                     void showFull(int position);
 
                 }
