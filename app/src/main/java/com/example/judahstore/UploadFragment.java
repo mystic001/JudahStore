@@ -158,8 +158,6 @@ public class UploadFragment extends Fragment {
         return mime.getExtensionFromMimeType(resolver.getType(uri));
     }
 
-
-
     private void uploadFile() {
         if (mImageUri != null){
             final StorageReference fileref = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));

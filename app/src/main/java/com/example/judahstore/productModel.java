@@ -16,6 +16,19 @@ public class productModel {
 
     }
 
+    public productModel(String string) {
+        name = string;
+    }
+
+    public productModel(String name, String description, String link, int price, int delivery, int total) {
+        this.name = name;
+        this.imageUrl = link;
+        this.description = description;
+        this.price = price;
+        this.delivery_fee = delivery;
+        TotalCost = total;
+    }
+
     public int getDelivery_fee() {
 
         return delivery_fee;

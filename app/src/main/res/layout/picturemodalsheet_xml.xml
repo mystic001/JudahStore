@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="picturMod"
+            type="com.example.judahstore.ProductViewModel"/>
 
 
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="2dp"
-    app:cardBackgroundColor="@android:color/white"
-    app:cardElevation="3dp"
-    app:cardPreventCornerOverlap="true"
-    tools:context=".DisplayFragment">
-    <LinearLayout
+    </data>
 
-        android:orientation="vertical"
+    <com.google.android.material.card.MaterialCardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="true"
+        tools:context=".DisplayFragment">
+        <LinearLayout
 
-
-        <FrameLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ProgressBar
-                android:id="@+id/prog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
-            <ImageView
-                android:id="@+id/full_image"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="3dp"
-                android:contentDescription="@string/full_description" />
+                android:layout_height="match_parent">
 
-
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/product_nam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:text="@string/descriptor"/>
-    </LinearLayout
->
-</com.google.android.material.card.MaterialCardView>
+                <ProgressBar
+                    android:id="@+id/prog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+                <ImageView
+                    android:id="@+id/full_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="3dp"
+                    android:contentDescription="@string/full_description" />
+            </FrameLayout>
+            <TextView
+                android:id="@+id/product_nam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:text="@{picturMod.proName}"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,10 +1,7 @@
 package com.example.judahstore;
 
 import android.content.Context;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -12,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.example.judahstore.databinding.JudahProductCardBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -26,6 +25,8 @@ import java.util.List;
                 private List<productModel> promodel ;
                 private itemCliclistener click;
 
+                private productModel prodel;
+
                 public ProductModelAdapter(Context context, List<productModel> mod){
                     mContext = context;
                     promodel = mod;
@@ -34,26 +35,33 @@ import java.util.List;
                 @NonNull
                 @Override
                 public productModelHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                    View view = LayoutInflater.from(mContext).inflate(R.layout.judah_product_card,parent,false);
-                    return new productModelHolder(view);
+                    LayoutInflater inflater = LayoutInflater.from(mContext);
+                    JudahProductCardBinding judahProductCardBinding = DataBindingUtil.inflate(inflater,R.layout.judah_product_card,parent,false);
+                    return new productModelHolder(judahProductCardBinding);
                 }
 
                 @Override
                 public void onBindViewHolder(@NonNull productModelHolder holder, int position) {
                     productModel proCurrent = promodel.get(position);
-                    holder.name.setText(proCurrent.getName());
-                    holder.price.setText(String.valueOf(proCurrent.getPrice()));
+
+                    //The code below will get the naming and the price from the layout file and use it to update the corresponding values of the productModel
+                    // We update the name and the price of our productmodel through the ProductViewModel Class
+
+                    holder.mJudahProductCardBinding.getProcard().setProdel(proCurrent);
+                    holder.mJudahProductCardBinding.executePendingBindings();
+                    //holder.name.setText(proCurrent.getName());
+                   // holder.price.setText(String.valueOf(proCurrent.getPrice()));
                     YoYo.with(Techniques.RubberBand)
                             .duration(2000)
                             .repeat(2)
-                            .playOn(holder.but);
+                            .playOn(holder.mJudahProductCardBinding.button);
 
                     Picasso.get()
                             .load(proCurrent.getImageUrl())
                             .fit()
                             .centerCrop()
                             .placeholder(R.drawable.shr_logo)
-                            .into(holder.image_view);
+                            .into(holder.mJudahProductCardBinding.productImage);
                 }
 
                 @Override
@@ -62,19 +70,27 @@ import java.util.List;
                 }
 
                 public class productModelHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-                    ImageView image_view ;
-                    TextView name;
-                    TextView price;
-                    Button but;
+                    JudahProductCardBinding mJudahProductCardBinding;
+                    //ImageView image_view ;
+                    //TextView name;
+                    //TextView price;
+                    //Button but;
 
-                    private productModelHolder(@NonNull View itemView) {
-                        super(itemView);
-                       image_view = itemView.findViewById(R.id.product_image);
-                       name = itemView.findViewById(R.id.product_name);
-                       price = itemView.findViewById(R.id.product_price);
-                       but = itemView.findViewById(R.id.button);
+                    private productModelHolder(@NonNull JudahProductCardBinding judahProductCardBinding ) {
+                        super(judahProductCardBinding.getRoot());
 
-                       but.setOnClickListener(new View.OnClickListener() {
+
+                        mJudahProductCardBinding = judahProductCardBinding;
+                        mJudahProductCardBinding.setProcard(new ProductViewModel(prodel));
+
+
+
+                      //image_view = itemView.findViewById(R.id.product_image);
+                       //name = itemView.findViewById(R.id.product_name);
+                       //price = itemView.findViewById(R.id.product_price);
+                       //but = itemView.findViewById(R.id.button);
+
+                       mJudahProductCardBinding.button.setOnClickListener(new View.OnClickListener() {
                            @Override
                            public void onClick(View view) {
                                if ( click != null ) {
@@ -86,7 +102,7 @@ import java.util.List;
                            }
                        });
 
-                       itemView.setOnClickListener(this);
+                       judahProductCardBinding.getRoot().setOnClickListener(this);
                        //itemView.setOnCreateContextMenuListener(this);
 
                     }
@@ -102,25 +118,6 @@ import java.util.List;
 
                     }
 
-                    /*@Override
-                    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-                       contextMenu.setHeaderTitle("Select any action below");
-                        MenuItem ondelete = contextMenu.add(Menu.NONE, 1, 1, "Delete");
-                        ondelete.setOnMenuItemClickListener(this);
-
-                    }*/
-
-                   /* @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        if ( click != null ) {
-                            int position = getAdapterPosition();
-                            if(position != RecyclerView.NO_POSITION){
-                                click.ondelete(position);
-                            }
-                        }
-
-                        return false;
-                    }*/
                 }
 
                 public interface  itemCliclistener{
@@ -133,4 +130,5 @@ import java.util.List;
                     click = listener ;
 
                 }
+
             }

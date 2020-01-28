@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.judahstore.databinding.FragmentProductModalSheetBinding;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.squareup.picasso.Picasso;
 
@@ -57,9 +59,8 @@ public class ProductModalSheet extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View view = inflater.inflate(R.layout.fragment_product_modal_sheet, container, false);
-
-
+        FragmentProductModalSheetBinding fragmentProductModalSheetBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_modal_sheet,container,false);
+       //View view = inflater.inflate(R.layout.fragment_product_modal_sheet, container, false);
 
         assert getArguments() != null;
         String name = getArguments().getString(NAME);
@@ -69,18 +70,23 @@ public class ProductModalSheet extends BottomSheetDialogFragment {
         int delivery = getArguments().getInt(DELIVERY_FEE);
         int total = getArguments().getInt(TOTAL);
 
-
-        ImageView imageView = view.findViewById(R.id.proImage);
-        TextView proName = view.findViewById(R.id.proname);
-        TextView proDesc = view.findViewById(R.id.prodesc);
-        TextView mPrice = view.findViewById(R.id.proprice);
-        TextView delivery_fee = view.findViewById(R.id.delivery_fee);
-        TextView mtotal = view.findViewById(R.id.cost);
-        Button buttoni = view.findViewById(R.id.buttonii);
-        Button chatbut = view.findViewById(R.id.chatNow);
+        productModel prodel = new productModel(name,description,link,price,delivery,total);
+        fragmentProductModalSheetBinding.setProMod(new ProductViewModel(prodel));
 
 
-        buttoni.setOnClickListener(new View.OnClickListener() {
+        //ImageView imageView = view.findViewById(R.id.proImage);
+        //TextView proName = view.findViewById(R.id.proname);
+        //TextView proDesc = view.findViewById(R.id.prodesc);
+        //TextView mPrice = view.findViewById(R.id.proprice);
+        //TextView delivery_fee = view.findViewById(R.id.delivery_fee);
+        //TextView mtotal = view.findViewById(R.id.cost);
+        //Button buttoni = view.findViewById(R.id.buttonii);
+        //Button chatbut = view.findViewById(R.id.chatNow);
+
+
+
+
+        fragmentProductModalSheetBinding.buttonii.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri myUri = Uri.parse(HOME);
@@ -89,14 +95,14 @@ public class ProductModalSheet extends BottomSheetDialogFragment {
             }
         });
 
-        chatbut.setOnClickListener(new View.OnClickListener() {
+        fragmentProductModalSheetBinding.chatNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 try {
                     PackageManager pm = getContext().getPackageManager();
                     pm.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
-                    String number = "+2348133103297";
+                    String number = "+2348155640049";
                     String url = "https://api.whatsapp.com/send?phone=" + number;
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse(url));
@@ -110,13 +116,16 @@ public class ProductModalSheet extends BottomSheetDialogFragment {
         });
 
 
-        proName.setText(name);
-        proDesc.setText(description);
-        mPrice.setText(String.valueOf(price));
-        delivery_fee.setText(String.valueOf(delivery));
-        mtotal.setText(String.valueOf(total));
+        //proName.setText(name);
+        //proDesc.setText(description);
+        //mPrice.setText(String.valueOf(price));
+       // delivery_fee.setText(String.valueOf(delivery));
+       // mtotal.setText(String.valueOf(total));
+
 
         Log.d(TAG,"the link is"+link);
+
+
 
 
         Picasso.get()
@@ -124,9 +133,9 @@ public class ProductModalSheet extends BottomSheetDialogFragment {
                 .fit()
                 .centerCrop()
                 .placeholder(R.drawable.shr_logo)
-                .into(imageView);
+                .into(fragmentProductModalSheetBinding.proImage);
 
-        return view ;
+        return fragmentProductModalSheetBinding.getRoot();
 
     }
 

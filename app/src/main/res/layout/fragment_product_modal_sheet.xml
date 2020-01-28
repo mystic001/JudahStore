@@ -1,161 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottom_sheet"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#fff"
-    android:orientation="vertical"
-    android:padding="10dp"
-    app:behavior_hideable="true"
-    app:behavior_peekHeight="56dp"
-    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.judahstore.StringFormat"/>
+        <variable
+            name="proMod"
+            type="com.example.judahstore.ProductViewModel"/>
+    </data>
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/proImage"/>
 
-        <TextView
-            android:id="@+id/info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="@string/product_details"
-            android:textColor="#444"
-            android:textSize="18sp"
-            android:weightSum="3"
-            android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/proname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#444"
-        android:layout_weight="2"
-        android:textSize="18sp"
-        android:text="@string/chicken_fried_rice_1x1" />
-
-    <TextView
-        android:id="@+id/prodesc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/descriptor" />
+            <LinearLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/bottom_sheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:behavior_hideable="true"
+                app:behavior_peekHeight="56dp"
+                app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical"
-        android:weightSum="3">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/proImage"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="2"
-            android:text="@string/product_price"
-            android:textColor="#444"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="@string/product_details"
+                        android:textColor="#444"
+                        android:textSize="18sp"
+                        android:weightSum="3"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/proprice"
-            android:layout_width="0dp"
-            android:gravity="right"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:text="@string/_435_00"/>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/proname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#444"
+                    android:layout_weight="2"
+                    android:textSize="18sp"
+                    android:text="@{proMod.proName}"
+                    tool:text="Name"/>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical"
-        android:weightSum="3">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="2"
-            android:text="Delivery fee"
-            android:textColor="#444"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/delivery_fee"
-            android:layout_width="0dp"
-            android:gravity="right"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:text="₹435.00"/>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/prodesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{proMod.proDescription}"
+                    tool:text="Description"/>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_vertical"
-        android:weightSum="3">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:weightSum="3">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="2"
-            android:text="@string/total_cost1"
-            android:textColor="#444"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="2"
+                        android:text="@string/price"
+                        android:textColor="#444"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/cost"
-            android:layout_width="0dp"
-            android:gravity="right"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="15sp" />
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/proprice"
+                        android:layout_width="0dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:text="@{StringFormat.getFormat(proMod.price)}"
+                        tool:text="price"/>
+                </LinearLayout>
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/contact"
-        android:textColor="#444"
-        android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:weightSum="3">
 
-    <Button
-        android:id="@+id/chatNow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="08133103297"
-        style="@style/Widget.Shrine.Button"
-        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="2"
+                        android:text="@string/delivery_fee"
+                        android:textColor="#444"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/buttonii"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        style="@style/Widget.Shrine.Button"
-        android:text="@string/buy_now"
-        android:textColor="#000" />
+                    <TextView
+                        android:id="@+id/delivery_fee"
+                        android:layout_width="0dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        android:text="@{StringFormat.getFormat(proMod.delivery)}"
+                        tool:text="Delivery Fee"/>
+                </LinearLayout>
 
-</LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="2"
+                        android:text="@string/total_cost1"
+                        android:textColor="#444"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/cost"
+                        android:layout_width="0dp"
+                        android:gravity="right"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@{StringFormat.getFormat(proMod.total)}"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        tool:text="Cost"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/contact"
+                    android:textColor="#444"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/chatNow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/whatsapp"
+                    style="@style/Widget.Shrine.Button"
+                    android:textColor="#000"/>
+
+                <Button
+                    android:id="@+id/buttonii"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    style="@style/Widget.Shrine.Button"
+                    android:text="@string/buy_now"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+</layout>
