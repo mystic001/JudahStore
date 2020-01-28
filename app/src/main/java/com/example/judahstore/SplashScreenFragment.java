@@ -5,14 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.example.judahstore.databinding.FragmentSplashScreenBinding;
 
 
 /**
@@ -21,8 +23,7 @@ import android.widget.Toast;
 public class SplashScreenFragment extends Fragment {
 
 
-    private ProgressBar progressBar ;
-
+    FragmentSplashScreenBinding fragmentSplashScreenBinding;
     public static Fragment newInstance(){
         return new SplashScreenFragment();
     }
@@ -34,6 +35,7 @@ public class SplashScreenFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         Handler handler = new Handler();
@@ -48,7 +50,7 @@ public class SplashScreenFragment extends Fragment {
                 } else {
 
                     Toast.makeText(getActivity(),"No network connection",Toast.LENGTH_LONG).show();
-                    progressBar.setVisibility(View.GONE);
+                    fragmentSplashScreenBinding.probar.setVisibility(View.GONE);
                     return ;
                 }
 
@@ -64,9 +66,8 @@ public class SplashScreenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_splash_screen, container, false);
-        progressBar = view.findViewById(R.id.probar);
-        return  view ;
+        FragmentSplashScreenBinding fragmentSplashScreenBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_splash_screen,container,false);
+        return  fragmentSplashScreenBinding.getRoot();
 
     }
 

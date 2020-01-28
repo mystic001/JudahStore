@@ -41,9 +41,6 @@ public class PictureModalsheet extends BottomSheetDialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         PicturemodalsheetXmlBinding picturemodalsheetXmlBinding = DataBindingUtil.inflate(inflater,R.layout.picturemodalsheet_xml,container,false);
 
-        //View view = inflater.inflate(R.layout.picturemodalsheet_xml,container,false);
-        //ImageView mage = view.findViewById(R.id.full_image);
-        //TextView text = view.findViewById(R.id.product_nam);
         assert getArguments() != null;
         String url = getArguments().getString(IMAGE);
         productModel model = new productModel(getArguments().getString(NAME));

@@ -1,7 +1,5 @@
 package com.example.judahstore;
 
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -15,9 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.judahstore.databinding.FragmentProductModalSheetBinding;
@@ -60,8 +55,6 @@ public class ProductModalSheet extends BottomSheetDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         FragmentProductModalSheetBinding fragmentProductModalSheetBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_modal_sheet,container,false);
-       //View view = inflater.inflate(R.layout.fragment_product_modal_sheet, container, false);
-
         assert getArguments() != null;
         String name = getArguments().getString(NAME);
         String description = getArguments().getString(DESCRIPTION);
@@ -72,19 +65,6 @@ public class ProductModalSheet extends BottomSheetDialogFragment {
 
         productModel prodel = new productModel(name,description,link,price,delivery,total);
         fragmentProductModalSheetBinding.setProMod(new ProductViewModel(prodel));
-
-
-        //ImageView imageView = view.findViewById(R.id.proImage);
-        //TextView proName = view.findViewById(R.id.proname);
-        //TextView proDesc = view.findViewById(R.id.prodesc);
-        //TextView mPrice = view.findViewById(R.id.proprice);
-        //TextView delivery_fee = view.findViewById(R.id.delivery_fee);
-        //TextView mtotal = view.findViewById(R.id.cost);
-        //Button buttoni = view.findViewById(R.id.buttonii);
-        //Button chatbut = view.findViewById(R.id.chatNow);
-
-
-
 
         fragmentProductModalSheetBinding.buttonii.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,12 +95,6 @@ public class ProductModalSheet extends BottomSheetDialogFragment {
             }
         });
 
-
-        //proName.setText(name);
-        //proDesc.setText(description);
-        //mPrice.setText(String.valueOf(price));
-       // delivery_fee.setText(String.valueOf(delivery));
-       // mtotal.setText(String.valueOf(total));
 
 
         Log.d(TAG,"the link is"+link);

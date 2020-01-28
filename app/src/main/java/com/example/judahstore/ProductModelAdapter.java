@@ -4,10 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,8 +45,7 @@ import java.util.List;
 
                     holder.mJudahProductCardBinding.getProcard().setProdel(proCurrent);
                     holder.mJudahProductCardBinding.executePendingBindings();
-                    //holder.name.setText(proCurrent.getName());
-                   // holder.price.setText(String.valueOf(proCurrent.getPrice()));
+
                     YoYo.with(Techniques.RubberBand)
                             .duration(2000)
                             .repeat(2)
@@ -71,10 +66,6 @@ import java.util.List;
 
                 public class productModelHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
                     JudahProductCardBinding mJudahProductCardBinding;
-                    //ImageView image_view ;
-                    //TextView name;
-                    //TextView price;
-                    //Button but;
 
                     private productModelHolder(@NonNull JudahProductCardBinding judahProductCardBinding ) {
                         super(judahProductCardBinding.getRoot());
@@ -82,13 +73,6 @@ import java.util.List;
 
                         mJudahProductCardBinding = judahProductCardBinding;
                         mJudahProductCardBinding.setProcard(new ProductViewModel(prodel));
-
-
-
-                      //image_view = itemView.findViewById(R.id.product_image);
-                       //name = itemView.findViewById(R.id.product_name);
-                       //price = itemView.findViewById(R.id.product_price);
-                       //but = itemView.findViewById(R.id.button);
 
                        mJudahProductCardBinding.button.setOnClickListener(new View.OnClickListener() {
                            @Override
@@ -103,7 +87,6 @@ import java.util.List;
                        });
 
                        judahProductCardBinding.getRoot().setOnClickListener(this);
-                       //itemView.setOnCreateContextMenuListener(this);
 
                     }
 

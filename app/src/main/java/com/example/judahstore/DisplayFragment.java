@@ -145,27 +145,6 @@ public class DisplayFragment extends Fragment implements ProductModelAdapter.ite
     }
 
 
-   /* @Override
-    public void ondelete(int position) {
-        productModel currentPro = model.get(position);
-        final String id = currentPro.getUniqueId();
-
-        StorageReference imageRef = mStorage.getReferenceFromUrl(currentPro.getImageUrl());
-        imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                mDatabaseReference.child(id).removeValue();
-                Toast.makeText(getActivity(), "deleted", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }*/
-
     @Override
     public void showFull(int position) {
         productModel currentPro = model.get(position);
